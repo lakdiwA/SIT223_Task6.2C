@@ -37,5 +37,10 @@ pipeline {
                 echo "The code is deployed to %PRODUCTION_ENVIRONMENT%"
             }
         }
+        stage('stage 7') {
+            steps{
+                echo "This is stage 7"
+            }
+        }
     }
 }
