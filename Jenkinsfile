@@ -1,45 +1,53 @@
 pipeline {
     agent any
-    environment{
-        DIRECTORY_PATH= "https://github.com/hirushanirmalt/Deakin-Unit-Page";
-        TESTING_ENVIRONMENT= "Testing Environment";
-        PRODUCTION_ENVIRONMENT= "Ranuja Aththidiya";
-    }
     stages{
         stage('Build') {
             steps{
-                echo "fetch the source code from the directory path specified by the environment variable"
+                echo "The code is built using the automation tool Maven"
             }
         }
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps{
-                echo "unit tests"
-                echo "integration tests"
+                echo "Unit tests are done by automated tool JUnit"
+            }
+            post{
+                success{
+                    mailto: "s223766823@deakin.deu.au",
+                    subject: "Test build success",
+                    body: "The test build was a success"
+                }
             }
         }
-        stage('Code Quality Check') {
+        stage('Code Analysis') {
             steps{
-                echo "check the quality of the code"
+                echo "To check the quality of the code by automatically analysing the code CheckStyle will be used"
             }
         }
-        stage('Deploy') {
+        stage('Security Scan') {
             steps{
-                echo "deploy the application to a testing environment specified by the environment variable"
+                echo "To perform security scans a plugin called OWASP ZAP will be used"
+            }
+            post{
+                success{
+                    mailto: "s223766823@deakin.deu.au",
+                    subject: "Security scan-build success",
+                    body: "The security scan-build was a success"
+                }
             }
         }
-        stage('Approval') {
+        stage('Deploy to Staging') {
             steps{
-                sleep 10
+                echo "AWS EC2 instance will be used to deploy staging"
+            }
+        }
+        stage('Integration Tests on Staging') {
+            steps{
+                echo "To do Integration tests on the staging JUnit is used"
             }
         }
         stage('Deploy to Production') {
             steps{
-                echo "The code is deployed to %PRODUCTION_ENVIRONMENT%"
-            }
-        }
-        stage('stage 7') {
-            steps{
-                echo "This is stage 7 example 6"
+                echo "AWS EC2 instance is used to deploy production"
             }
         }
     }
