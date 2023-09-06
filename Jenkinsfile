@@ -12,7 +12,7 @@ pipeline {
             }
             post{
                 success{
-                    mailto: "s223766823@deakin.deu.au",
+                    mailto: "ranujalakdive@gmail.com",
                     subject: "Test build success",
                     body: "The test build was a success"
                 }
@@ -29,7 +29,7 @@ pipeline {
             }
             post{
                 success{
-                    mailto: "s223766823@deakin.deu.au",
+                    mailto: "ranujalakdive@gmail.com",
                     subject: "Security scan-build success",
                     body: "The security scan-build was a success"
                 }
