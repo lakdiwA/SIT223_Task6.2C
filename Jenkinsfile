@@ -8,20 +8,19 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps{
-                echo "Unit tests are done by automated tool JUniut"
+                echo "Unit tests are done by automated tool JUnit"
             }
             post{
                 success{
                     emailext to: "ranujalakdive@gmail.com",
                     subject: "Test build success",
-                    body: "The test build was a success",
+                    body: "The test build was a success"
                     attachLog: true
                 }
                 failure{
                     emailext to: "ranujalakdive@gmail.com",
                     subject: "Test build failure",
-                    body: "The test build was a fail",
-                    attachLog: true
+                    body: "The test build was a fail"
                 }
             }
         }
