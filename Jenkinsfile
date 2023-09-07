@@ -15,14 +15,13 @@ pipeline {
                     mail to: "ranujalakdive@gmail.com",
                     subject: "Test build success",
                     body: "The test build was a success",
-                    attachLog: true, 
-                    attachmentsPattern: "**/*.txt",
-                    compressLog: true
+                    attachLog: true
                 }
                 failure{
                     mail to: "ranujalakdive@gmail.com",
                     subject: "Test build failure",
-                    body: "The test build was a fail"
+                    body: "The test build was a fail",
+                    attachLog: true
                 }
             }
         }
