@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps{
-                echo "Unit tests are done by automated tool JUnit"
+                echo "Unit tests are done by automated tool JUniut"
             }
             post{
                 success{
