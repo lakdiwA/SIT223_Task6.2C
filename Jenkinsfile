@@ -20,7 +20,8 @@ pipeline {
                 failure{
                     emailext to: "ranujalakdive@gmail.com",
                     subject: "Test build failure",
-                    body: "The test build was a fail"
+                    body: "The test build was a fail",
+                    attachLog: true
                 }
             }
         }
