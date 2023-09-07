@@ -12,13 +12,13 @@ pipeline {
             }
             post{
                 success{
-                    mail to: "ranujalakdive@gmail.com",
+                    emailext to: "ranujalakdive@gmail.com",
                     subject: "Test build success",
                     body: "The test build was a success",
                     attachLog: true
                 }
                 failure{
-                    mail to: "ranujalakdive@gmail.com",
+                    emailext to: "ranujalakdive@gmail.com",
                     subject: "Test build failure",
                     body: "The test build was a fail",
                     attachLog: true
@@ -36,12 +36,12 @@ pipeline {
             }
             post{
                 success{
-                    mail to: "ranujalakdive@gmail.com",
+                    emailext to: "ranujalakdive@gmail.com",
                     subject: "Security scan-build success",
                     body: "The security scan-build was a success"
                 }
                 failure{
-                    mail to: "ranujalakdive@gmail.com",
+                    emailext to: "ranujalakdive@gmail.com",
                     subject: "Security scan-build failure",
                     body: "The security scan-build was a fail"
                 }
