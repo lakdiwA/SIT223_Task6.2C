@@ -8,13 +8,18 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps{
-                echo "Unit tests are done by automated tool JUnit"
+                echoi "Unit tests are done by automated tool JUnit"
             }
             post{
                 success{
                     mail to: "ranujalakdive@gmail.com",
                     subject: "Test build success",
                     body: "The test build was a success"
+                }
+                failure{
+                    mail to: "ranujalakdive@gmail.com",
+                    subject: "Test build failure",
+                    body: "The test build was a fail"
                 }
             }
         }
@@ -32,6 +37,11 @@ pipeline {
                     mail to: "ranujalakdive@gmail.com",
                     subject: "Security scan-build success",
                     body: "The security scan-build was a success"
+                }
+                failure{
+                    mail to: "ranujalakdive@gmail.com",
+                    subject: "Security scan-build failure",
+                    body: "The security scan-build was a fail"
                 }
             }
         }
