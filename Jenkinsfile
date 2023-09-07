@@ -14,7 +14,7 @@ pipeline {
                 success{
                     emailext to: "ranujalakdive@gmail.com",
                     subject: "Test build success",
-                    body: "The test build was a success"
+                    body: "The test build was a success",
                     attachLog: true
                 }
                 failure{
